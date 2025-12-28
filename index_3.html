@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Zenco_About</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      "Noto Sans KR", sans-serif;
+      color: #333;
+    }
+
+    .site-header{
+    width:100%;
+    height:70px;
+    background:#4a4a4a;
+    display:flex;
+    align-items:center;
+  }
+
+  .site-header .inner{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  /* 왼쪽 로고 */
+  .logo{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex:0 0 auto;
+  }
+  .logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* 가운데 메뉴 */
+  nav.gnb{
+    flex:1;
+    display:flex;
+    justify-content:center;
+  }
+  .gnb ul{
+    list-style:none;
+    display:flex;
+    gap:160px;   /* 메뉴 간격(스샷 느낌) */
+    align-items:center;
+  }
+  .gnb a{
+    text-decoration:none;
+    color:#fff;
+    font-size:16px;
+    font-weight:500;
+    letter-spacing:0.2px;
+    padding:8px 0;
+    opacity:0.95;
+  }
+  .gnb a:hover{
+    opacity:1;
+  }
+
+  /* 선택된 메뉴 밑줄 */
+  .gnb a.zenco{
+    font-weight:800;
+    text-decoration:underline;
+    text-underline-offset:8px;
+    text-decoration-thickness:2px;
+  }
+
+  /* 오른쪽 여백 맞추기용(중앙정렬이 흔들리지 않게) */
+  .header-spacer{
+    width:46px;   /* 로고랑 같은 폭 */
+    height:46px;
+    flex:0 0 auto;
+  }
+
+  @media (max-width: 900px){
+    .gnb ul{ gap:40px; }
+  }
+
+    .page-wrap {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #f5f5f5 0%, #696969 55%, #222 100%);
+    }
+
+    /* ---------- 상단 ZENCO 소개 ---------- */
+    .zenco-hero {
+      max-width: 1100px;
+      margin: 80px auto 120px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .zenco-hero-left {
+      width: 52%;
+    }
+
+    .zenco-title-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .zenco-title-row .logo-text {
+      font-size: 72px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+    .zenco-title-row .postfix {
+      font-size: 22px;
+      margin: 0 6px 10px;
+    }
+    .zenco-title-row .horiz-line {
+      flex: 1;
+      height: 2px;
+      background: #333;
+      margin-left: 12px;
+    }
+
+    .zenco-main-text {
+      font-size: 20px;
+      line-height: 1.7;
+      margin-bottom: 70px;
+    }
+
+    .zenco-middle-row {
+      display: flex;
+      gap: 45px;
+      align-items: flex-start;
+      margin-bottom: 70px;
+    }
+    .vert-line {
+      width: 2px;
+      height: 210px;
+      background: #333;
+    }
+    .middle-text {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .zenco-bottom-text {
+      font-size: 15px;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    /* 오른쪽 큰 로고 이미지 여기 변경됨!!! */
+   .zenco-hero-right {
+  width: 65%;              /* 더 넓게! */
+  height: 700px;           /* 더 크게! */
+  background-image: url(logo_3d_white.png);
+  background-size: cover;  /* contain → cover로 변경 */
+  background-position: center right;
+  background-repeat: no-repeat;
+  display: inline-block;
+  margin-right: -200px;
+  opacity: 1;              /* 흐릿함 제거 */
+}
+
+
+    /* ---------- 가운데 문장 ---------- */
+    .zenco-mid-caption {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      text-align: center;
+      color: #f5f5f5;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    /* ---------- 로고 설명 영역 ---------- */
+    .zenco-logo-section {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      text-align: center;
+      color: #f5f5f5;
+    }
+
+    .zenco-logo-row {
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin-bottom: 40px;
+    }
+
+    .logo-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .logo-circle.left { background-image: url("logo_white_circle.png"); }
+    .logo-circle.center { background-image: url("logo_dark_circle.png"); }
+    .logo-circle.right { background-image: url("logo_gray_circle.png"); }
+
+    .zenco-logo-desc {
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 70px;
+    }
+
+    .zenco-bottom-line-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+    .bottom-vert {
+      width: 2px;
+      height: 60px;
+      background: #f5f5f5;
+    }
+    .bottom-caption {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    /* 반응형 */
+    @media (max-width: 900px) {
+      .zenco-hero {
+        flex-direction: column;
+        gap: 40px;
+        margin: 50px auto 80px;
+      }
+      .zenco-hero-left, .zenco-hero-right {
+        width: 100%;
+      }
+      .zenco-hero-right { height: 300px; }
+    }
+    .site-footer{
+    width:100%;
+    background:#4a4a4a;
+    color:#eee;
+    padding:26px 0 18px;
+    border-top:2px solid rgba(255,255,255,0.08);
+  }
+
+  .site-footer .inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns: 260px 1fr 1fr;
+    gap:40px;
+    align-items:start;
+    position:relative;
+  }
+
+  /* 왼쪽 로고 + 타이틀 */
+  .footer-brand{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .footer-logo{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex:0 0 auto;
+  }
+  .footer-logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .footer-title{
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:0.2px;
+    margin-top:6px;
+  }
+
+  /* 컬럼 텍스트 */
+  .footer-col p{
+    font-size:14px;
+    line-height:2.2;
+    opacity:0.95;
+    white-space:pre-line;
+  }
+
+  /* 맨 오른쪽 아래 문구 */
+  .footer-right-bottom{
+    position:absolute;
+    right:24px;
+    bottom:-2px;
+    font-size:13px;
+    opacity:0.9;
+  }
+
+  /* 아래 구분선(스샷 느낌) */
+  .footer-divider{
+    max-width:1200px;
+    margin:16px auto 0;
+    border-top:1px solid rgba(255,255,255,0.25);
+    opacity:0.7;
+  }
+
+  @media (max-width: 900px){
+    .site-footer .inner{
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
+    .footer-right-bottom{
+      position:static;
+      margin-top:8px;
+      text-align:left;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <header class="site-header">
+  <div class="inner">
+    <!-- 로고(각 페이지 동일) -->
+    <a class="logo" href="index.html" aria-label="Zenco_Home">
+      <img src="logo_white.png" alt="Zenco">
+    </a>
+
+    <!-- 메뉴 -->
+    <nav class="gnb">
+      <ul>
+        <li><a href="index_3.html" class="zenco">ZENCO</a></li>
+        <li><a href="index_4.html" class="prduct"> PRODUCT</a></li>
+        <li><a href="index_5.html" class="character" >CHARACTER</a></li>
+        <li><a href="index_6.html" class="shop" >SHOP</a></li>
+      </ul>
+    </nav>
+
+    <!-- 오른쪽 빈 칸(정렬용) -->
+    <div class="header-spacer"></div>
+  </div>
+</header>
+
+    <section class="zenco-hero">
+
+      <div class="zenco-hero-left">
+        <div class="zenco-title-row">
+          <span class="logo-text">ZENCO</span>
+          <span class="postfix">는</span>
+          <span class="horiz-line"></span>
+        </div>
+
+        <p class="zenco-main-text">
+          감성과 구조 창의성과 논리를 결합하여<br>
+          새로운 디자인 가치를 창출합니다
+        </p>
+
+        <div class="zenco-middle-row">
+          <span class="vert-line"></span>
+          <p class="middle-text">
+            완벽한 형태보다 과정의 아름다움을<br>
+            틀에 박힌 디자인보다 감정이 느껴지는 표현을 추구합니다
+          </p>
+        </div>
+
+        <p class="zenco-bottom-text">
+          ZENCO는 멀티미디어디자인학과 창업동아리로<br>
+          감각적인 사고와 자유로운 창의성을 기반으로 한 감성 중심의 브랜드입니다
+        </p>
+      </div>
+
+      <div class="zenco-hero-right"></div>
+    </section>
+
+    <section class="zenco-mid-caption">
+      젠코 로고는 창의적 감각과 인간적인 디자인 철학을 담고 있습니다
+    </section>
+
+    <section class="zenco-logo-section">
+      <div class="zenco-logo-row">
+        <div class="logo-circle left"></div>
+        <div class="logo-circle center"></div>
+        <div class="logo-circle right"></div>
+      </div>
+
+      <p class="zenco-logo-desc">
+        부드러운 곡선과 유기적 형태는 아이디어가 자유롭게 흐르는 과정을 나타내며<br>
+        ‘Z’와 ‘c’의 자연스러운 연결은 협업과 소통 중심의 디자인 문화를 상징합니다
+      </p>
+
+      <div class="zenco-bottom-line-wrap">
+        <div class="bottom-vert"></div>
+        <p class="bottom-caption">
+          이는 감각적이고 실험적인 젠코의 디자인 정체성을 반영합니다
+        </p>
+      </div>
+
+    </section>
+
+<footer class="site-footer">
+  <div class="inner">
+    <!-- 왼쪽 브랜드 -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="logo_white.png" alt="Zenco">
+      </div>
+      <div class="footer-title">ZENCO</div>
+    </div>
+
+    <!-- 가운데 정보 -->
+    <div class="footer-col">
+      <p>
+회장 : 김수민
+부원 : 박수민 손준형 유시영 이주호 정한솔
+지도교수 : 김승보
+      </p>
+    </div>
+
+    <!-- 오른쪽 정보 -->
+    <div class="footer-col">
+      <p>
+메일 : sumin8225@gmail.com
+인스타그램 : zenco_official
+연락처 : 010 3835 8225
+      </p>
+    </div>
+
+    <div class="footer-right-bottom">인덕대학교 멀티미디어디자인과 창업동아리</div>
+  </div>
+
+  <div class="footer-divider"></div>
+</footer>
+
+
+  </div>
+</body>
+</html>

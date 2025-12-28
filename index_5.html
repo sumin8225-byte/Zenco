@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenco | Character</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      color: #222;
+      background: #fff;
+    }
+
+    .wrap {
+      width: 100%;
+    }
+
+     .site-header{
+    width:100%;
+    height:70px;
+    background:#4a4a4a;
+    display:flex;
+    align-items:center;
+  }
+
+  .site-header .inner{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  /* 왼쪽 로고 */
+  .logo{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex:0 0 auto;
+  }
+  .logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* 가운데 메뉴 */
+  nav.gnb{
+    flex:1;
+    display:flex;
+    justify-content:center;
+  }
+  .gnb ul{
+    list-style:none;
+    display:flex;
+    gap:160px;   /* 메뉴 간격(스샷 느낌) */
+    align-items:center;
+  }
+  .gnb a{
+    text-decoration:none;
+    color:#fff;
+    font-size:16px;
+    font-weight:500;
+    letter-spacing:0.2px;
+    padding:8px 0;
+    opacity:0.95;
+  }
+  .gnb a:hover{
+    opacity:1;
+  }
+
+  /* 선택된 메뉴 밑줄 */
+  .gnb a.character{
+    font-weight:800;
+    text-decoration:underline;
+    text-underline-offset:8px;
+    text-decoration-thickness:2px;
+  }
+
+  /* 오른쪽 여백 맞추기용(중앙정렬이 흔들리지 않게) */
+  .header-spacer{
+    width:46px;   /* 로고랑 같은 폭 */
+    height:46px;
+    flex:0 0 auto;
+  }
+
+  @media (max-width: 900px){
+    .gnb ul{ gap:40px; }
+  }
+
+    
+    /* ===== 상단 캐릭터 소개 ===== */
+    .char-hero {
+      width: 100%;
+      background: #f6f1c9; /* 연노랑 */
+      padding: 80px 0;
+    }
+
+    .char-hero .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .char-hero .text {
+      width: 55%;
+    }
+
+    .char-hero h1 {
+      font-size: 34px;
+      font-weight: 900;
+      margin-bottom: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .char-hero p {
+      font-size: 14px;
+      line-height: 1.9;
+      color: #444;
+      white-space: pre-line;
+    }
+
+    .char-hero .img {
+      width: 45%;
+      height: 260px;
+      background-image: url(ch.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* ===== 아래 캐릭터 설명 블록 ===== */
+    .char-list {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .char-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      padding: 60px 0;
+    }
+
+    .char-row.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .char-img {
+      width: 45%;
+      height: 220px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .char-text {
+      width: 55%;
+    }
+
+    .char-text h2 {
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 18px;
+      text-align: center;
+      color: #333;
+    }
+
+    .char-text p {
+      font-size: 13px;
+      line-height: 2.0;
+      color: #555;
+      white-space: pre-line;
+      text-align: center;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #999;
+      opacity: 0.6;
+    }
+
+    /* ===== 반응형 ===== */
+    @media (max-width: 900px) {
+      .char-hero .inner {
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .char-hero .text,
+      .char-hero .img {
+        width: 100%;
+      }
+
+      .char-hero .img {
+        height: 220px;
+      }
+
+      .char-row,
+      .char-row.reverse {
+        flex-direction: column;
+      }
+
+      .char-img, .char-text {
+        width: 100%;
+      }
+
+      .char-text h2, .char-text p {
+        text-align: left;
+      }
+    }
+    .site-footer{
+    width:100%;
+    background:#4a4a4a;
+    color:#eee;
+    padding:26px 0 18px;
+    border-top:2px solid rgba(255,255,255,0.08);
+  }
+
+  .site-footer .inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns: 260px 1fr 1fr;
+    gap:40px;
+    align-items:start;
+    position:relative;
+  }
+
+  /* 왼쪽 로고 + 타이틀 */
+  .footer-brand{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+  }
+  .footer-logo{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex:0 0 auto;
+  }
+  .footer-logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .footer-title{
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:0.2px;
+    margin-top:6px;
+  }
+
+  /* 컬럼 텍스트 */
+  .footer-col p{
+    font-size:14px;
+    line-height:2.2;
+    opacity:0.95;
+    white-space:pre-line;
+  }
+
+  /* 맨 오른쪽 아래 문구 */
+  .footer-right-bottom{
+    position:absolute;
+    right:24px;
+    bottom:-2px;
+    font-size:13px;
+    opacity:0.9;
+  }
+
+  /* 아래 구분선(스샷 느낌) */
+  .footer-divider{
+    max-width:1200px;
+    margin:16px auto 0;
+    border-top:1px solid rgba(255,255,255,0.25);
+    opacity:0.7;
+  }
+
+  @media (max-width: 900px){
+    .site-footer .inner{
+      grid-template-columns: 1fr;
+      gap:14px;
+    }
+    .footer-right-bottom{
+      position:static;
+      margin-top:8px;
+      text-align:left;
+    }
+  }
+  </style>
+</head>
+
+  <div class="wrap">
+
+    <header class="site-header">
+  <div class="inner">
+    <!-- 로고(각 페이지 동일) -->
+    <a class="logo" href="index.html" aria-label="Zenco Home">
+      <img src="logo_white.png" alt="Zenco">
+    </a>
+
+    <!-- 메뉴 -->
+    <nav class="gnb">
+      <ul>
+        <li><a href="index_3.html" class="zenco">ZENCO</a></li>
+        <li><a href="index_4.html" class="prduct"> PRODUCT</a></li>
+        <li><a href="index_5.html" class="character" >CHARACTER</a></li>
+        <li><a href="index_6.html" class="shop" >SHOP</a></li>
+      </ul>
+    </nav>
+
+    <!-- 오른쪽 빈 칸(정렬용) -->
+    <div class="header-spacer"></div>
+  </div>
+</header>
+
+    <!-- ===== 상단 ===== -->
+    <section class="char-hero">
+      <div class="inner">
+        <div class="text">
+          <h1>젠코의 대표캐릭터를 소개합니다!</h1>
+          <p>
+혹시 마음속에 담아두기 힘든 감정들이 있나요?
+젠코의 대표 캐릭터 무무, 토토, 노노는
+표현하지 못했던 우리의 마음속 이야기,
+세 친구들이 우리의 내면을 솔직하게 보여줍니다
+          </p>
+        </div>
+
+        <div class="img"></div>
+      </div>
+    </section>
+
+    <!-- ===== 아래 리스트 ===== -->
+    <section class="char-list">
+
+      <!-- 무무 -->
+      <div class="char-row">
+        <div class="char-img" style="background-image:url('Group\ 1.png');"></div>
+
+        <div class="char-text">
+          <h2>무무</h2>
+          <p>
+무무는 부드러운 파스텔 핑크색의 고양이입니다
+늘 입가에 은은한 미소를 머금어 차분하게 돌봄이 드는 매력이 있습니다
+밝고 긍정적인 에너지가 가득하여 공간을 자연스레 따뜻하게 만들죠
+특히, 모든 감정을 쓰레기통처럼 너그럽게 포용하는 존재입니다
+무무 곁에서는 이상하게 마음이 가벼워지고 깊은 편안함을 느끼게 됩니다
+          </p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- 토토 -->
+      <div class="char-row reverse">
+        <div class="char-img" style="background-image:url('Group\ 2.png');"></div>
+
+        <div class="char-text">
+          <h2>토토</h2>
+          <p>
+토토는 늘 살짝 떨며 긴장한 모습의 고양이입니다
+움직임이 부드럽고 느릿하여 쉽게 상처받아 잘 울컥하곤 합니다
+작은 온기에도 크게 흔들릴 만큼 마음이 여리고 깊은 아이입니다
+슬픔 감정을 숨기지 못하지만, 타인의 힘듦은 민감하게 감지합니다
+오히려 다른 이들을 걱정해주는, 가만히 안아주고 싶은 다정한 존재입니다
+          </p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- 노노 -->
+      <div class="char-row">
+        <div class="char-img" style="background-image:url('Group\ 3.png');"></div>
+
+        <div class="char-text">
+          <h2>노노</h2>
+          <p>
+노노는 살짝 찡그린 표정과 몰라라 느낌으로 화난 듯한 분위기입니다
+실제와는 다르게 사실 마음을 다루기 어려운 서툰 ‘도라’님 같아요
+겉으로는 까칠하고 신경질만 사실은 마음이 아주 여리고 상처를 잘 받습니다
+작은 말투에도 크게 감동하지만, 자신을 숨기려는 습관이 있습니다
+겉과 달리 작은 소리에도 놀라는, 마음속은 순수한 어린 친구랍니다
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <footer class="site-footer">
+  <div class="inner">
+    <!-- 왼쪽 브랜드 -->
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="logo_white.png" alt="Zenco">
+      </div>
+      <div class="footer-title">ZENCO</div>
+    </div>
+
+    <!-- 가운데 정보 -->
+    <div class="footer-col">
+      <p>
+회장 : 김수민
+부원 : 박수민 손준형 유시영 이주호 정한솔
+지도교수 : 김승보
+      </p>
+    </div>
+
+    <!-- 오른쪽 정보 -->
+    <div class="footer-col">
+      <p>
+메일 : sumin8225@gmail.com
+인스타그램 : zenco_official
+연락처 : 010 0000 0000
+      </p>
+    </div>
+
+    <div class="footer-right-bottom">인덕대학교 멀티미디어디자인과 창업동아리</div>
+  </div>
+
+  <div class="footer-divider"></div>
+</footer>
+
+
+</body>
+</html>
